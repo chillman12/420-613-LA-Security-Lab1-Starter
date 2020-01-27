@@ -17,6 +17,15 @@ namespace SecurityLab1_Starter.Models
             }
         }
 
+        public void LogToFile(String text)
+        {
+            using (var writer = new StreamWriter("c:\\Temp\\ErrorLog.txt"))
+            {
+                var currentDate = new DateTime();
+                writer.WriteLine("[{0}] {1}", currentDate.ToString(), text);
+            }
+        }
+
         public static void Log(string logMessage, TextWriter w)
         {
             w.Write("\r\nLog Entry : ");
